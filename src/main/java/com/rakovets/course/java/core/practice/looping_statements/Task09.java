@@ -53,7 +53,6 @@ class Task09 {
                 reverseAmountWithAccountingFormat += " ";
             }
         }
-        System.out.println(reverseAmountWithAccountingFormat);
         for (int i = reverseAmountWithAccountingFormat.length() - 1; i >= 0; i--) {
             amountWithAccountingFormat += reverseAmountWithAccountingFormat.charAt(i);
         }

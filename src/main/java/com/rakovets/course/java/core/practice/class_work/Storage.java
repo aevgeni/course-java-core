@@ -1,16 +1,21 @@
 package com.rakovets.course.java.core.practice.class_work;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Storage {
-    private List<User> usersList = new ArrayList<>();
+    private final Map<Integer, User> users = new HashMap<>();
+    private int initialUserId = 0;
 
-    public List<User> getUsersList() {
-        return usersList;
+    private int userCounter() {
+        return initialUserId++;
     }
 
     public void addUser(User user) {
-        usersList.add(user);
+        users.put(userCounter(), user);
+    }
+
+    public Map<Integer, User> getUsers() {
+        return users;
     }
 }

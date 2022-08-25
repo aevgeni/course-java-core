@@ -6,14 +6,9 @@ public class Engine implements Runnable {
     private final Storage storage;
     private final Scanner scanner = new Scanner(System.in);
     private boolean isRunning = true;
-    private int userId = 0;
 
     public Engine(Storage storage) {
         this.storage = storage;
-    }
-
-    private int userCounter() {
-        return userId++;
     }
 
     private void addUserToStorage() {
@@ -23,12 +18,13 @@ public class Engine implements Runnable {
         String lastName = scanner.next();
         System.out.print("Enter user age: ");
         int age = scanner.nextInt();
-        storage.addUser(new User(firstName, lastName, age, userCounter()));
+        storage.addUser(new User(firstName, lastName, age));
         System.out.println("User added to storage!");
     }
 
     private void printMenu() {
-        System.out.println("0 - Exit \n" +
+        System.out.println("\n Choose point of menu: \n" +
+                "0 - Exit \n" +
                 "1 - Add new user \n" +
                 "2 - Print all users");
     }
@@ -43,7 +39,7 @@ public class Engine implements Runnable {
                 addUserToStorage();
                 break;
             case 2:
-                System.out.println(storage.getUsersList());
+                System.out.println(storage.getUsers());
                 break;
             default:
                 break;
